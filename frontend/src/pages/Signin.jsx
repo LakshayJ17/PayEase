@@ -43,7 +43,8 @@ export const Signin = () => {
           placeholder="johndoe123" label={"Password"} />
 
         <div className="pt-4">
-          <Button label={"Sign in"} onClick={handleSigin} />
+          <Button className={"w-full text-white bg-gray-800 hover:bg-gray-900"}
+           label={"Sign in"} onClick={handleSigin} />
         </div>
         <BottomWarning label={"Don't have an account?"} buttonText={"Sign up"} to={"/signup"} />
       </div>

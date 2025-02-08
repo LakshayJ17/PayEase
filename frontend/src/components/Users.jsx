@@ -17,7 +17,7 @@ export const Users = () => {
     }, [filter])
 
     return <>
-        <div className="font-bold mt-6 text-lg">
+        <div className="font-semibold mt-6 text-xl">
             Users
         </div>
         <div className="my-2">
@@ -28,7 +28,7 @@ export const Users = () => {
         <div>
             {users.map(user => <User key={user._id} user={user} />)}
         </div>
-    </>  
+    </>
 }
 
 function User({ user }) {
@@ -51,7 +51,9 @@ function User({ user }) {
         <div className="flex flex-col justify-center h-ful">
             <Button onClick={() => {
                 navigate("/send?id=" + user._id + "&name=" + user.firstName);
-            }} label={"Send Money"} />
+            }} label={"Send Money"}
+                className={"w-full text-white bg-gray-800 hover:bg-gray-900 "}
+            />
         </div>
     </div>
 }

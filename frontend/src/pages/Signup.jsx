@@ -54,7 +54,8 @@ export const Signup = () => {
                     }} placeholder="password123" label={"Password"} />
 
                     <div className="pt-4">
-                        <Button onClick={handleSignup} label={"Sign up"} />
+                        <Button className={"w-full text-white bg-gray-800 hover:bg-gray-900 "}
+                         onClick={handleSignup} label={"Sign up"} />
                     </div>
 
                     <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />
