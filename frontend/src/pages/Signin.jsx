@@ -21,7 +21,8 @@ export const Signin = () => {
       if (response.data.token && response.data.firstName) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("initial", response.data.firstName[0].toUpperCase());
-        navigate('/dashboard');
+        localStorage.setItem("firstName", response.data.firstName);
+        navigate('/homepage');
       } else {
         alert("Invalid credentials");
       }

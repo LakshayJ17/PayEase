@@ -25,7 +25,8 @@ export const Signup = () => {
             // We have to store the token (Bearer ####) in the local storage
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("initial", firstName[0].toUpperCase())
-            navigate("/dashboard")
+            localStorage.setItem("firstName", firstName)
+            navigate("/homepage")
         } catch {
             alert("Email aready taken / Incorrect credentials")
         }
