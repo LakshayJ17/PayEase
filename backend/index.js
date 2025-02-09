@@ -3,6 +3,7 @@ const cors = require("cors");
 const rootRouter = require("./routes/index");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -12,4 +13,7 @@ app.use(express.json());
 // This creates a base URL structure for your API (e.g., http://yourserver.com/api/v1/...)
 app.use("/api/v1", rootRouter);
 
-app.listen(3000);
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
