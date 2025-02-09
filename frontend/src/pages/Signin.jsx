@@ -18,7 +18,8 @@ export const Signin = () => {
         username, password
       })
 
-      localStorage.setItem("token", response.data.token)
+      localStorage.setItem("token", response.data.token);
+      // localStorage.setItem("initial", response.data.username[0].toupperCase());
       navigate('/dashboard')
     } catch {
       alert("Invalid credentials")
