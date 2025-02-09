@@ -15,7 +15,7 @@ export default function HomePage() {
                     <a href="#" className="text-gray-600 hover:text-gray-900">
                         Home
                     </a>
-                    <a href="#" className="text-gray-600 hover:text-gray-900">
+                    <a href="#payment-methods" className="text-gray-600 hover:text-gray-900">
                         Services
                     </a>
                     <a href="#" className="text-gray-600 hover:text-gray-900">
@@ -26,7 +26,7 @@ export default function HomePage() {
 
             {/* Hero Section */}
 
-            <section className="relative h-screen overflow-hidden">
+            <section id="home" className="relative h-[90vh] overflow-hidden object-cover">
                 <img
                     src={onlinepay}
                     alt="People using mobile devices"
@@ -47,10 +47,9 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-24"></div>
             </section>
             {/* Payment Methods */}
-            <section className="max-w-6xl mx-auto py-20 px-4">
+            <section id="payment-methods" className="max-w-6xl mx-auto py-20 px-4">
                 <h2 className="text-3xl font-bold text-center mb-12">Choose Your Payment Method</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Credit Card */}
