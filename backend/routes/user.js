@@ -102,7 +102,7 @@ router.post("/signin", async (req, res) => {
         // Send the token back to the client in the response
         res.json({
             token: token,
-            username: user.username
+            firstName: user.firstName
         })
         return;
     }

@@ -25,7 +25,7 @@ export const LandingPage = () => {
               PayEase
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-12 text-center">
-              Discover easy payment solutions
+              Simplifying payments, one click at a time
             </p>
 
             <div className="space-y-4 w-full max-w-md">
