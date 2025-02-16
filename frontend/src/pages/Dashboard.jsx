@@ -13,7 +13,7 @@ export const Dashboard = () => {
         const fetchUserData = async () => {
             const token = localStorage.getItem("token");
                 // Fetch balance
-                const balanceResponse = await axios.get('http://localhost:3000/api/v1/account/balance', {
+                const balanceResponse = await axios.get('https://payease-qu9o.onrender.com/api/v1/account/balance', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
