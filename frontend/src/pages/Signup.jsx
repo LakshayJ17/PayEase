@@ -13,9 +13,11 @@ export const Signup = () => {
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSignup = async () => {
+        setLoading(true);
         try {
             // We have used post bcz we have to send a post request
             const response = await axios.post("https://payease-qu9o.onrender.com/api/v1/user/signup", {
@@ -31,6 +33,7 @@ export const Signup = () => {
         } catch {
             alert("Email aready taken / Incorrect credentials")
         }
+        setLoading(false)
     }
 
     // Taking all the inputs such as name, email , pwd and then on clicking the sign up button, we are sending the data to the backend and store the received token in the local storage
@@ -58,7 +61,9 @@ export const Signup = () => {
 
                     <div className="pt-4">
                         <Button className={"w-full text-white bg-gray-800 hover:bg-gray-900 "}
-                         onClick={handleSignup} label={"Sign up"} />
+                            onClick={handleSignup}
+                            label={"Sign up"}
+                            loading={loading} />
                     </div>
 
                     <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />

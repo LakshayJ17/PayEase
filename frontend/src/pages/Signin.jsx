@@ -10,9 +10,11 @@ import axios from "axios";
 export const Signin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignin = async () => {
+    setLoading(true);
     try {
       const response = await axios.post("https://payease-qu9o.onrender.com/api/v1/user/signin", {
         username, password
@@ -30,6 +32,7 @@ export const Signin = () => {
     } catch (error) {
       alert("Invalid credentials");
     }
+    setLoading(false);
   };
 
   return (
@@ -57,8 +60,10 @@ export const Signin = () => {
               className={"w-full text-white bg-gray-800 hover:bg-gray-900"}
               label={"Sign in"}
               onClick={handleSignin}
+              loading={loading}
             />
           </div>
+
           <BottomWarning label={"Don't have an account?"} buttonText={"Sign up"} to={"/signup"} />
         </div>
       </div>

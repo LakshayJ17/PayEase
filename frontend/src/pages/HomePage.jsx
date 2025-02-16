@@ -2,9 +2,12 @@ import mobilepayment from "../assets/mobilepayment.png"
 import creditcard from "../assets/creditcard.png"
 import banktransfer from "../assets/banktransfer.png"
 import onlinepay from "../assets/onlinepay.jpg"
+import { Button } from "../components/Button"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 export default function HomePage() {
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     return (
@@ -65,9 +68,10 @@ export default function HomePage() {
                             </div>
                             <h3 className="text-xl font-semibold mb-3">Credit Card</h3>
                             <p className="text-gray-600 mb-4">Use your credit card for quick and easy payments.</p>
-                            <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
-                                Learn More
-                            </button>
+                            <Button
+                                className={"w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"}
+                                label={"Learn More"}
+                            />
                         </div>
                     </div>
 
@@ -84,10 +88,20 @@ export default function HomePage() {
                             </div>
                             <h3 className="text-xl font-semibold mb-3">Mobile Payments</h3>
                             <p className="text-gray-600 mb-4">Pay directly from your mobile device with ease.</p>
-                            <button onClick={() => navigate("/dashboard")}
-                                className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors cursor-pointer">
-                                Pay Now
-                            </button>
+                            <Button
+                                onClick={() => {
+                                    setLoading(true);
+                                    setTimeout(() => {
+                                        navigate("/dashboard");
+                                        setLoading(false);
+                                    }, 1000);
+                                    
+                                }}
+                                className={"w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors cursor-pointer"}
+                                label={"Pay Now"}
+                                loading={loading}
+                            />
+
                         </div>
                     </div>
 
@@ -104,9 +118,10 @@ export default function HomePage() {
                             </div>
                             <h3 className="text-xl font-semibold mb-3">Bank Transfers</h3>
                             <p className="text-gray-600 mb-4">Transfer funds securely from your bank account.</p>
-                            <button className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer">
-                                Learn More
-                            </button>
+                            <Button
+                                className={"w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors cursor-pointer"}
+                                label={"Learn More"}
+                            />
                         </div>
                     </div>
                 </div>
