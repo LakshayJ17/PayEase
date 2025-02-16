@@ -27,7 +27,6 @@ export default function HomePage() {
                 </nav>
             </header>
 
-            {/* Hero Section */}
 
             <section id="home" className="relative h-[90vh] overflow-hidden object-cover">
                 <img

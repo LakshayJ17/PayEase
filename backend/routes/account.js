@@ -20,6 +20,7 @@ router.get("/balance", authMiddleware, async (req, res) => {
     }
 });
 
+// TRANSFER MONEY
 router.post("/transfer", authMiddleware, async (req, res) => {
 
     // The things between startTransaction and commitTransaction are atomic - meaning they will either all succeed or all fail
