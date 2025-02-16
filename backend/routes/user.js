@@ -64,7 +64,8 @@ router.post("/signup", async (req, res) => {
 
     res.json({
         message: "User created successfully",
-        token: token
+        token: token,
+        userId: user._id
     })
 })
 
@@ -102,7 +103,8 @@ router.post("/signin", async (req, res) => {
         // Send the token back to the client in the response
         res.json({
             token: token,
-            firstName: user.firstName
+            firstName: user.firstName,
+            userId: user._id
         })
         return;
     }
