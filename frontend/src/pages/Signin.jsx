@@ -19,6 +19,7 @@ export const Signin = () => {
       });
 
       if (response.data.token && response.data.firstName) {
+        localStorage.setItem("userId", response.data.userId);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("initial", response.data.firstName[0].toUpperCase());
         localStorage.setItem("firstName", response.data.firstName);
