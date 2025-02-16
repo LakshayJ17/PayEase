@@ -1,17 +1,17 @@
-export const Appbar = ({username, initial }) => {
+export const Appbar = ({ username, initial }) => {
     return (
-        <div className="shadow h-14 flex justify-between items-center px-4 bg-white">
-            <div className="text-2xl font-semibold">
+        <div className="shadow-lg h-16 flex justify-between items-center px-6 py-10 bg-gradient-to-r from-purple-600 to-blue-500 text-white">
+            <div className="text-2xl font-bold tracking-wide">
                 PayEase
             </div>
             <div className="flex items-center">
-                <div className="mr-4 text-gray-700 text-lg font-semibold">
-                    Hello {username}
+                <div className="mr-4 text-lg font-medium">
+                    Hello, {username}
                 </div>
-                <div className="rounded-full h-11 w-11 bg-slate-200 flex items-center justify-center text-xl text-gray-800">
+                <div className="rounded-full h-12 w-12 bg-white text-purple-600 flex items-center justify-center text-xl font-bold shadow-md">
                     {initial}
                 </div>
             </div>
         </div>
     );
-}
+};

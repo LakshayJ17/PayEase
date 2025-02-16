@@ -1,69 +1,76 @@
-import { useEffect, useState } from "react"
-import { Button } from "./Button"
+import { useEffect, useState } from "react";
+import { Button } from "./Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-// This is used to display the list of users and also to search for a particular user
-
+// Component to display the list of users and provide a search functionality
 export const Users = () => {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
-        axios.get("https://payease-qu9o.onrender.com/api/v1/user/bulk?filter=" + filter)
+        axios.get(`https://payease-qu9o.onrender.com/api/v1/user/bulk?filter=${filter}`)
             .then(response => {
-                setUsers(response.data.user)
-            })
-    }, [filter])
+                setUsers(response.data.user);
+            });
+    }, [filter]);
 
-    return <>
-        <div className="font-semibold mt-6 text-xl">
-            Users
+    return (
+        <div className="mt-6">
+            <h2 className="text-2xl font-semibold text-gray-900">Users</h2>
+
+            <div className="my-4">
+                <input
+                    onChange={(e) => setFilter(e.target.value)}
+                    type="text"
+                    placeholder="Search users..."
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+            </div>
+
+            <div className="space-y-4">
+                {users.filter(user => user._id !== userId).map(user => (
+                    <User key={user._id} user={user} />
+                ))}
+            </div>
         </div>
-        <div className="my-2">
-            <input onChange={(e) => {
-                setFilter(e.target.value)
-            }} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
-        </div>
-        <div>
-            {users.filter(user => user._id !== userId).map(user => <User key={user._id} user={user} />)}
-        </div>
-    </>
-}
+    );
+};
 
 function User({ user }) {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const handlePay = () => {
-        setLoading(true)
+        setLoading(true);
         setTimeout(() => {
-            navigate("/send?id=" + user._id + "&name=" + user.firstName);
-            setLoading(false)
+            navigate(`/send?id=${user._id}&name=${user.firstName}`);
+            setLoading(false);
         }, 1000);
-    }
+    };
 
-    return <div className="flex justify-between">
-        <div className="flex">
-            <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
-                <div className="flex flex-col justify-center h-full text-xl">
+    return (
+        <div className="flex justify-between items-center bg-white p-4 shadow-md rounded-lg border border-gray-200">
+            <div className="flex items-center">
+                <div className="rounded-full h-12 w-12 bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center text-xl font-semibold shadow-md">
                     {user.firstName[0].toUpperCase()}
                 </div>
-            </div>
-            <div className="flex flex-col justify-center h-ful">
-                <div>
-                    {user.firstName} {user.lastName}
+                <div className="ml-4">
+                    <p className="text-lg font-semibold text-gray-800">{user.firstName} {user.lastName}</p>
                 </div>
             </div>
-        </div>
 
-        <div className="flex flex-col justify-center h-ful">
-            <Button onClick={handlePay}
-                label={"Send Money"}
-                className={"text-white bg-gray-800 hover:bg-gray-900 "}
-                loading={loading}
-            />
+            <div>
+                <Button 
+                    onClick={handlePay}
+                    label="Send Money"
+                    className="text-white bg-gray-800 hover:bg-gray-900 transition rounded-lg"
+                    loading={loading}
+                />
+            </div>
         </div>
-    </div>
+    );
 }
+
+
