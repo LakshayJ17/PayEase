@@ -39,7 +39,7 @@ export default function HomePage() {
                         <div className="max-w-4xl space-y-6">
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight animate-slide-up">
                                 <span className="block">Revolutionize</span>
-                                <span className="block text-blue-400">Your Payments</span>
+                                <span className="block text-purple-400">Your Payments</span>
                                 <span className="block">with PayEase</span>
                             </h1>
                             <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl animate-fade-in">

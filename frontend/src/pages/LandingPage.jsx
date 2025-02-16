@@ -10,7 +10,6 @@ export const LandingPage = () => {
       <main className="w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {/* Left Section - Image on Large Screens */}
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative group w-full max-w-2xl">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-xl opacity-40 transition duration-300 group-hover:opacity-70"></div>
@@ -22,7 +21,6 @@ export const LandingPage = () => {
             </div>
           </div>
 
-          {/* Right Section - Text & Buttons */}
           <div className="flex flex-col items-center lg:items-start max-w-lg mx-auto w-full lg:max-w-none">
             <h1 className="text-5xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight text-center lg:text-left">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
@@ -33,24 +31,22 @@ export const LandingPage = () => {
               The future of seamless payments, at your fingertips.
             </p>
 
-            {/* Buttons with Hover Effects */}
             <div className="space-y-4 w-full max-w-md">
               <Button
                 onClick={() => navigate("/signup")}
-                className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ease-in-out hover:shadow-lg hover:brightness-110 transform hover:-translate-y-1"
+                className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ease-in-out hover:shadow-lg hover:brightness-110 transform hover:-translate-y-1 cursor-pointer"
                 label="Get Started"
               />
 
               <Button
                 onClick={() => navigate("/signin")}
-                className="w-full bg-gray-800 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-md transform hover:-translate-y-1"
+                className="w-full bg-gray-800 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-gray-700 hover:shadow-md transform hover:-translate-y-1 cursor-pointer"
                 label="Login"
               />
             </div>
           </div>
         </div>
 
-        {/* Mobile Image (Now Centered) */}
         <div className="lg:hidden flex justify-center mt-10">
           <div className="relative group w-full flex items-center justify-center">
             <div className="absolute -inset-3 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-3xl opacity-50"></div>
