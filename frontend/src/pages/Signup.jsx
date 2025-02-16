@@ -60,7 +60,7 @@ export const Signup = () => {
                     }} placeholder="password123" label={"Password"} />
 
                     <div className="pt-4">
-                        <Button className={"w-full text-white bg-gray-800 hover:bg-gray-900 "}
+                        <Button className={" text-white bg-gray-800 hover:bg-gray-900 "}
                             onClick={handleSignup}
                             label={"Sign up"}
                             loading={loading} />

@@ -34,6 +34,15 @@ export const Users = () => {
 
 function User({ user }) {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handlePay = () => {
+        setLoading(true)
+        setTimeout(() => {
+            navigate("/send?id=" + user._id + "&name=" + user.firstName);
+            setLoading(false)
+        }, 1000);
+    }
 
     return <div className="flex justify-between">
         <div className="flex">
@@ -50,10 +59,10 @@ function User({ user }) {
         </div>
 
         <div className="flex flex-col justify-center h-ful">
-            <Button onClick={() => {
-                navigate("/send?id=" + user._id + "&name=" + user.firstName);
-            }} label={"Send Money"}
-                className={"w-full text-white bg-gray-800 hover:bg-gray-900 "}
+            <Button onClick={handlePay}
+                label={"Send Money"}
+                className={"text-white bg-gray-800 hover:bg-gray-900 "}
+                loading={loading}
             />
         </div>
     </div>

@@ -4,7 +4,7 @@ export function Button({ label, onClick, className, loading = false }) {
             onClick={onClick}
             type="button"
             disabled={loading}
-            className={`focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-m px-5 py-2.5 me-2 mb-2 cursor-pointer flex items-center justify-center ${loading ? "opacity-50 cursor-not-allowed" : ""
+            className={`w-full focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-m px-4 py-2 me-2 mb-2 cursor-pointer flex items-center justify-center ${loading ? "opacity-50 cursor-not-allowed" : ""
                 } ${className}`}
         >
             {loading ? (
