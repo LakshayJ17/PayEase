@@ -46,6 +46,7 @@ router.post("/transfer", authMiddleware, async (req, res) => {
             });
         }
 
+        
         if (!toAccount) {
             // Save failed transaction OUTSIDE the session
             const failedTransaction = new Transactions({
