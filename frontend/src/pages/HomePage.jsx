@@ -2,7 +2,7 @@ import mobilepayment from "../assets/mobilepayment.png"
 import creditcard from "../assets/creditcard.png"
 import banktransfer from "../assets/banktransfer.png"
 import onlinepay from "../assets/onlinepay.jpg"
-import { Button } from "../components/ui/Button"
+import { Button } from "../components/Button"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 

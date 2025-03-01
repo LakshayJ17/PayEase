@@ -1,5 +1,5 @@
 import payment from "../assets/payment.jpg";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
 export const LandingPage = () => {

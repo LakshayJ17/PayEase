@@ -93,7 +93,7 @@
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/Button";
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();

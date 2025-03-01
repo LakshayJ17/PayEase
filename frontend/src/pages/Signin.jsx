@@ -6,7 +6,7 @@ import { Eye, EyeOff, Lock, Mail } from "lucide-react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BottomWarning } from "@/components/BottomWarning"
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/Button"
 
 
 export function Signin() {
