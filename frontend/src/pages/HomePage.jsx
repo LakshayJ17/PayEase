@@ -453,6 +453,10 @@ import mobilepayment from "../assets/mobilepayment.png"
 import creditcard from "../assets/creditcard.png"
 import banktransfer from "../assets/banktransfer.png"
 import { Button } from "../components/Button"
+import {FeatureCard} from "../components/FeatureCard"
+import {SocialIcon} from "../components/SocialIcon"
+import {PaymentCard} from "../components/PaymentCard"
+import {NavLink} from "../components/NavLink"
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true)
@@ -797,99 +801,3 @@ export default function HomePage() {
     </AnimatePresence>
   )
 }
-
-// Navigation Link Component
-const NavLink = ({ href, active, children }) => {
-  return (
-    <a
-      href={href}
-      className={`relative px-2 py-1 transition-colors duration-300 ${
-        active ? "text-white" : "text-gray-400 hover:text-white"
-      }`}
-    >
-      {children}
-      {active && (
-        <motion.span
-          layoutId="navIndicator"
-          className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-blue-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
-    </a>
-  )
-}
-
-// Payment Card Component
-const PaymentCard = ({ image, title, description, buttonLabel, buttonClass, onClick, loading, delay = 0 }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -5 }}
-      className="relative rounded-2xl overflow-hidden group"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      <div className="bg-gray-900/50 backdrop-blur-xl border border-white/5 rounded-2xl shadow-xl p-8 text-white transition-all duration-300 h-full flex flex-col">
-        <div className="bg-gray-800/50 rounded-xl p-4 mb-6 shadow-md overflow-hidden group-hover:shadow-blue-500/10 transition-all duration-300">
-          <motion.img
-            src={image}
-            alt={title}
-            className="h-48 w-full object-contain transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-        <h3 className="text-xl font-semibold mb-3">{title}</h3>
-        <p className="text-gray-400 mb-6 flex-grow">{description}</p>
-        {/* <Button
-                    className={`w-full py-3 rounded-xl text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-lg ${buttonClass}`}
-                    label={buttonLabel}
-                    onClick={onClick}
-                    loading={loading}
-                /> */}
-      </div>
-    </motion.div>
-  )
-}
-
-// Feature Card Component
-const FeatureCard = ({ title, icon, description, delay = 0 }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -5 }}
-      className="bg-gray-900/50 backdrop-blur-xl border border-white/5 p-8 rounded-2xl shadow-xl hover:shadow-purple-500/10 transition-all duration-300 text-white text-center h-full"
-    >
-      <motion.div
-        initial={{ scale: 0.8 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: delay + 0.2 }}
-        className="text-5xl mb-4"
-      >
-        {icon}
-      </motion.div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
-    </motion.div>
-  )
-}
-
-// Social Icon Component
-const SocialIcon = ({ icon }) => {
-  return (
-    <a
-      href="#"
-      className="w-10 h-10 rounded-full bg-gray-800/80 flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white transition-colors duration-300"
-    >
-      <span className="sr-only">{icon}</span>
-      <i className={`fa fa-${icon}`}></i>
-    </a>
-  )
-}
-

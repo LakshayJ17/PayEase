@@ -12,24 +12,27 @@ export const Dashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             const token = localStorage.getItem("token");
-                // Fetch balance
-                const balanceResponse = await axios.get('https://payease-qu9o.onrender.com/api/v1/account/balance', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                const formattedBalance = balanceResponse.data.balance.toFixed(2);
-                setBalance(formattedBalance);
+            // Fetch balance
+            const balanceResponse = await axios.get('https://payease-qu9o.onrender.com/api/v1/account/balance', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const formattedBalance = balanceResponse.data.balance.toFixed(2);
+            setBalance(formattedBalance);
         };
 
         fetchUserData();
     }, []);
 
-    return <div>
-        <Appbar initial={initial} username={firstName} />
-        <div className="m-8">
-            <Balance value={balance} />
-            <Users />
-        </div>
-    </div>
+    return (
+        <div className="min-h-[100vh] bg-gradient-to-br from-[#0a101f] to-[#111827]">
+            <Appbar initial={initial} username={firstName} />
+            <div className="m-8">
+                <Balance value={balance} />
+                <Users />
+            </div>
+        </div >
+    )
 }
+

@@ -109,7 +109,7 @@ export function Signin() {
               </div>
 
               <Button
-                className={"w-full h-13 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-white font-semibold shadow-lg transition-all "}
+                className={"w-full h-13 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-white font-semibold shadow-lg transition-all"}
                 label={"Sign in"}
                 onClick={handleSignin}
                 loading={loading}
