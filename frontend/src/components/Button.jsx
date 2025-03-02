@@ -1,21 +1,22 @@
-export function Button({ label, onClick, className, loading = false }) {
-    return (
-        <button
-            onClick={onClick}
-            type="button"
-            disabled={loading}
-            className={`w-full cursor-pointer text-white py-2 px-6 rounded-lg text-lg font-medium transition-all duration-300 ease-in-out flex items-center justify-center
-            ${loading ? "opacity-50 cursor-not-allowed" : "hover:shadow-md transform hover:-translate-y-1"} ${className}`}
-        >
-            {loading ? (
-                <svg className="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 00-8 8h4z"></path>
-                </svg>
-            ) : (
-                label
-            )}
-        </button>
-    );
-}
+import { motion } from "framer-motion";
 
+export const Button = ({ className = "", label, onClick, loading = false, disabled = false }) => {
+  return (
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={onClick}
+      disabled={disabled || loading}
+      className={`relative cursor-pointer ${className} ${disabled || loading ? "opacity-70 cursor-not-allowed" : ""}`}
+    >
+      {loading ? (
+        <div className="flex items-center justify-center">
+          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+        </div>
+      ) : (
+        <span>{label}</span>
+      )}
+      <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+    </motion.button>
+  );
+};

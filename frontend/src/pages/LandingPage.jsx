@@ -9,7 +9,7 @@ export const LandingPage = () => {
     <div className="bg-gradient-to-br from-gray-800 to-black flex items-center justify-center min-h-screen px-6">
       <main className="w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
+
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative group w-full max-w-2xl">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-xl opacity-40 transition duration-300 group-hover:opacity-70"></div>
@@ -28,7 +28,7 @@ export const LandingPage = () => {
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-gray-300 mb-10 text-center lg:text-left">
-              The future of seamless payments, at your fingertips.
+              Simplifying payments for a better financial future.
             </p>
 
             <div className="space-y-4 w-full max-w-md">

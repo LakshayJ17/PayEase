@@ -50,8 +50,8 @@ export function Signin() {
 
         <div className="relative">
           <CardHeader className="text-center space-y-2 pb-4 pt-8">
-            <CardTitle className="text-white text-3xl font-bold tracking-tight">Welcome to PayEase</CardTitle>
-            <p className="text-gray-400 text-lg">Log in to get the best services!</p>
+            <CardTitle className="text-white text-3xl font-bold tracking-tight">Welcome back</CardTitle>
+            <p className="text-gray-400 text-lg">Enter your credentials to access your account</p>
           </CardHeader>
 
           <CardContent className="pb-8">
@@ -109,7 +109,7 @@ export function Signin() {
               </div>
 
               <Button
-                className={"w-full text-white bg-blue-600 hover:bg-blue-500"}
+                className={"w-full h-13 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-white font-semibold shadow-lg transition-all "}
                 label={"Sign in"}
                 onClick={handleSignin}
                 loading={loading}
