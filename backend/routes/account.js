@@ -114,7 +114,7 @@ router.get("/transactions", authMiddleware, async (req, res) => {
 
         const allTransactions = await Transactions.find({
             $or: [{ from: account._id }, { to: account._id }]
-        }).populate('from to')
+        }).populate('from to', 'userId')
 
         res.json(allTransactions);
     } catch (error) {
